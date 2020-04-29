@@ -3,9 +3,9 @@ library(ggplot2)
 library(hrbrthemes)
 library(stringr)
 
-#movies = read.csv("Data/movies.csv")
-#ratings = read.csv("Data/ratings.csv")
-#tags = read.csv("Data/tags.csv")
+movies = read.csv("Data/movies.csv")
+ratings = read.csv("Data/ratings.csv")
+tags = read.csv("Data/tags.csv")
 
 
 #cleaning ratings data 
@@ -20,6 +20,7 @@ tags$timestamp = as.POSIXct(tags$timestamp , origin = '1970-1-1' , tz = "UTC")
 
 ### Could be vectorized ------------
 movies$title = as.character(movies$title)
+movies$genres = as.character(movies$genres)
 year = vector()
 for(i in 1:nrow(movies))
 {
@@ -42,10 +43,29 @@ for(i in sp)
 {
   vec = unique(c(vec , i ))
 }
-vec = vec[genres!="(no genres listed)"]
+vec = vec[vec!="(no genres listed)"]
 
 genres = data.frame(genre = vec , rate = rep(0,length(vec))  , views = rep(0,length(vec)) )
 
+for(i in 1:nrow(ratings))
+{
+  id = ratings[i , "movieId"] 
+  rate = ratings[i, "rating"]
+  g = strsplit(  movies[movies$movieId==id , "genres"]  , "\\|")
+  for(j in g[[1]] )
+  {
+    genres[genres$genre == j , "views"] = genres[genres$genre == j , "views"] + 1
+    genres[genres$genre == j  , "rate"] = genres[genres$genre == j , "rate"] + rate
+  }
+}
+
+genres$rate = genres$rate / genres$views
+ggplot(genres, aes(x= reorder(genre , rate ), y=rate , fill = genre)) + 
+  geom_bar(stat = "identity") +
+  labs(x = "Genre" , y= "Rate"  )+
+  ggtitle("Comparing with the rate of each genre")+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90) )
 
 
 
