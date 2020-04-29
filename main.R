@@ -1,6 +1,6 @@
 library(reshape2)
 library(ggplot2)
-library(hrbrthemes)
+#library(hrbrthemes)
 library(stringr)
 
 movies = read.csv("Data/movies.csv")
@@ -60,12 +60,24 @@ for(i in 1:nrow(ratings))
 }
 
 genres$rate = genres$rate / genres$views
+
+# plot genre and rate 
 ggplot(genres, aes(x= reorder(genre , rate ), y=rate , fill = genre)) + 
   geom_bar(stat = "identity") +
   labs(x = "Genre" , y= "Rate"  )+
   ggtitle("Comparing with the rate of each genre")+
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90) )
+
+
+# plot genre and views 
+ggplot(genres, aes(x= reorder(genre , views ), y=views , fill = genre)) + 
+  geom_bar(stat = "identity") +
+  labs(x = "Genre" , y= "Views"  )+
+  ggtitle("Comparing with the views of each genre")+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90) )
+
 
 
 
