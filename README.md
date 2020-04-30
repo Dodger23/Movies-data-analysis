@@ -237,13 +237,13 @@ temp$freq = round(runif(nrow(temp) , 1 , 20))
 
 ```
 
-And hereis a word cloud of some of the choosen movies 
+And here is a word cloud of some of the choosen movies 
 ```{r , eval=FALSE , results='hide'}
 wordcloud2( temp )
 ```
 ![movies-wordcloud](https://raw.githubusercontent.com/Dodger23/The-movie-project/develop/images/movies-wordcloud.png)
 
-Now let's take the tags the have 
+Now let's take the tags they have 
 ```{r , eval=TRUE}
 drama$movieId = as.character(drama$movieId)
 filt = c("In Netflix queue" , "free to download" )
@@ -261,9 +261,7 @@ wordcloud2( temp )
 ![tags-wordcloud](https://raw.githubusercontent.com/Dodger23/The-movie-project/develop/images/tags-wordcloud.png)
 
 
-So we finally have our movie, it'll be an atmospheric, no dialogue, dystopian, harsh, disturbing and bleak gritty movie involve a story of creaetivity and imagination that happens or involves "England"
+# So we finally have our movie, it'll be an atmospheric, no dialogue, dystopian, harsh, disturbing and bleak gritty movie involve a story of creaetivity and imagination that happens or involves "England"
 
-Hmmm, Not very much the expected.... but I guess the internet has a very weird taste
-
-
-We made it, We have our movie, we will be millionaires .... The only problem is we need money first to produce the movie :D
+## Hmmm, Not very much the expected.... but I guess the internet has a very weird taste 
+just kidding,, I know the data is small and not updated, but the important thing is We made it, We have our movie, we will be millionaires .... The only problem is we need money first to produce the movie :D
