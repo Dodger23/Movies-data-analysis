@@ -9,7 +9,7 @@ output: html_document
 ```
 
 ## This project is just for fun
-Using a movies reviews by users dataset provided by <https://grouplens.org/datasets/movielens/latest/> We will try (by analyzing the data) to predict the most profitable movie we can produce to have a lot of mony
+Using a movies reviews by users dataset provided by <https://grouplens.org/datasets/movielens/latest/> We will try (by analyzing the data) to predict the most profitable movie we can produce to have a lot of money $$$ :D
 
 I should mention that this is the **1 MB** developing data, which is **Small**: **100,000 ratings** and **3,600 tag** applications applied to **9,000 movies** by **600  users.** Last updated **9/2018**.
 
