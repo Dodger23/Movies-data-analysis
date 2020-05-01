@@ -155,7 +155,7 @@ ggplot(genres_rates, aes(x= reorder(genre , rate ), y=rate , fill = genre)) +
 ![genres-rates-rate](https://raw.githubusercontent.com/Dodger23/The-movie-project/develop/images/genres-rates-rate.png)
 
 
-But who wants the people to love his movie !! , we're talking money**$$$** here 
+But who wants the people to love his movie !! , we're talking money **$$$** here 
 So let's reorder the genres by the number of views
 ```{r warning=FALSE, , eval=FALSE, results='hide'}
 ggplot(genres_rates, aes(x= reorder(genre , views ), y=rate , fill = genre)) + 
@@ -168,7 +168,7 @@ ggplot(genres_rates, aes(x= reorder(genre , views ), y=rate , fill = genre)) +
 ![genres-rates-views](https://raw.githubusercontent.com/Dodger23/The-movie-project/develop/images/genres-rates-views.png)
 
 
-Okay okay let's calm down for a moment,  because the diffirence in rates are very little, let's just compare all genres by the number of views
+Okay okay let's calm down for a moment,  because the diffirence in rates is very small, let's just compare all genres by the number of views
 ```{r , eval=FALSE , echo =FALSE}
 genres_views = as.data.frame(genres_views %>% group_by(genre) %>% summarise_all(sum) ) 
 
